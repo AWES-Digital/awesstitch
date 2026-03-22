@@ -3,34 +3,30 @@ import { motion } from 'framer-motion';
 
 const Services = () => {
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-background border-b border-white/10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32">
-        <div className="w-full md:w-1/3">
+    <section className="py-32 px-6 md:px-12 lg:px-24 bg-white border-b border-black/10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-16">
+        <div className="w-full flex flex-col md:flex-row justify-between items-end mb-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="flex flex-col gap-4"
           >
-            <span className="text-secondary text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
-              <img src="https://framerusercontent.com/images/07MRGUSC57J73KvZAlKUDzPAE.svg" alt="icon" className="w-5 h-5 filter invert" />
-              What we do
-            </span>
-            <h2 className="font-serif text-3xl md:text-5xl text-white mt-6 mb-8">
-              Perfectly aligned creative and production expertise to increase digital impact.
-            </h2>
-            <div className="flex gap-4">
-              <button className="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-primary hover:text-white transition-all duration-300">
-                View our work
-              </button>
-              <button className="bg-transparent border border-white/20 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300">
-                Explore plans
-              </button>
+            <div className="flex items-center gap-4">
+              <img src="https://framerusercontent.com/images/07MRGUSC57J73KvZAlKUDzPAE.svg" alt="icon" className="w-16 h-16" />
+              <img src="https://framerusercontent.com/images/07MRGUSC57J73KvZAlKUDzPAE.svg" alt="icon" className="w-16 h-16" />
             </div>
+            <h2 className="font-sans font-black text-6xl md:text-[120px] text-black leading-none uppercase tracking-tighter">
+              what we do
+            </h2>
+            <p className="font-serif text-2xl md:text-3xl text-gray-500 mt-4 max-w-xl">
+              Perfectly aligned creative and production expertise to increase digital impact.
+            </p>
           </motion.div>
         </div>
 
-        <div className="w-full md:w-2/3 space-y-16">
+        <div className="w-full space-y-16">
           {[
             {
               number: "01",
@@ -57,21 +53,23 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="flex flex-col border-t border-white/10 pt-8"
+              className="flex flex-col md:flex-row gap-8 border-t border-black/10 pt-16"
             >
-              <div className="flex justify-between items-baseline mb-6">
-                <span className="font-serif text-3xl md:text-4xl text-white/40 italic">{'{'}{service.number}{'}'}</span>
-                <h3 className="font-serif text-4xl md:text-5xl text-white text-right group-hover:text-primary transition-colors cursor-pointer">{service.title}</h3>
+              <div className="w-full md:w-1/3">
+                <span className="font-sans font-bold text-lg md:text-xl text-black/40 italic">{'{'}{service.number}{'}'}</span>
+                <h3 className="font-serif text-4xl md:text-6xl text-black group-hover:text-primary transition-colors cursor-pointer mt-4">{service.title}</h3>
               </div>
-              <p className="text-white/60 font-light leading-relaxed max-w-xl ml-auto text-right mb-8">
-                {service.desc}
-              </p>
-              <div className="flex flex-wrap gap-3 justify-end">
-                {service.tags.map((tag, j) => (
-                  <span key={j} className="text-xs uppercase tracking-widest text-white/50 border border-white/20 px-4 py-2 rounded-full font-bold bg-white/5 hover:bg-primary hover:text-white transition-colors cursor-default">
-                    {tag}
-                  </span>
-                ))}
+              <div className="w-full md:w-2/3">
+                <p className="text-gray-600 font-light text-lg md:text-xl leading-relaxed mb-8 max-w-2xl">
+                  {service.desc}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {service.tags.map((tag, j) => (
+                    <span key={j} className="text-xs uppercase tracking-widest text-black/50 border border-black/20 px-6 py-3 rounded-full font-bold bg-transparent hover:bg-black hover:text-white transition-colors cursor-default">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

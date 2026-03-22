@@ -6,6 +6,7 @@ import About from './components/About';
 import Work from './components/Work';
 import Metrics from './components/Metrics';
 import Services from './components/Services';
+import Benefits from './components/Benefits';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Testimonials from './components/Testimonials';
@@ -48,6 +49,7 @@ function App() {
         <Work />
         <Metrics />
         <Services />
+        <Benefits />
         <Pricing />
         <FAQ />
         <Testimonials />
