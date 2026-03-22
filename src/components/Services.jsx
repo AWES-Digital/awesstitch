@@ -3,34 +3,24 @@ import { motion } from 'framer-motion';
 
 const Services = () => {
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-background border-b border-white/10">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32">
-        <div className="w-full md:w-1/3">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-secondary text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
-              <img src="https://framerusercontent.com/images/07MRGUSC57J73KvZAlKUDzPAE.svg" alt="icon" className="w-5 h-5 filter invert" />
-              What we do
-            </span>
-            <h2 className="font-serif text-3xl md:text-5xl text-white mt-6 mb-8">
-              Perfectly aligned creative and production expertise to increase digital impact.
-            </h2>
-            <div className="flex gap-4">
-              <button className="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-primary hover:text-white transition-all duration-300">
-                View our work
-              </button>
-              <button className="bg-transparent border border-white/20 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all duration-300">
-                Explore plans
-              </button>
-            </div>
-          </motion.div>
-        </div>
+    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-white text-black relative">
+      <div className="max-w-[1400px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-24 md:mb-32"
+        >
+          <h2 className="font-display font-black text-[12vw] md:text-[120px] leading-none uppercase tracking-tighter w-full mb-8">
+            what we do
+          </h2>
+          <p className="text-gray-500 text-xl md:text-3xl font-serif italic max-w-4xl">
+            Perfectly aligned creative and production expertise to increase digital impact.
+          </p>
+        </motion.div>
 
-        <div className="w-full md:w-2/3 space-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-16 mb-32">
           {[
             {
               number: "01",
@@ -57,25 +47,42 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="flex flex-col border-t border-white/10 pt-8"
+              className="flex flex-col border-t border-black/10 pt-8"
             >
-              <div className="flex justify-between items-baseline mb-6">
-                <span className="font-serif text-3xl md:text-4xl text-white/40 italic">{'{'}{service.number}{'}'}</span>
-                <h3 className="font-serif text-4xl md:text-5xl text-white text-right group-hover:text-primary transition-colors cursor-pointer">{service.title}</h3>
-              </div>
-              <p className="text-white/60 font-light leading-relaxed max-w-xl ml-auto text-right mb-8">
+              <span className="font-bold text-primary text-sm mb-8">{'{'}{service.number}{'}'}</span>
+              <h3 className="font-serif text-3xl md:text-4xl text-black font-bold mb-6">{service.title}</h3>
+              <p className="text-gray-500 font-serif italic leading-relaxed mb-10 text-lg">
                 {service.desc}
               </p>
-              <div className="flex flex-wrap gap-3 justify-end">
+              <ul className="flex flex-col gap-4">
                 {service.tags.map((tag, j) => (
-                  <span key={j} className="text-xs uppercase tracking-widest text-white/50 border border-white/20 px-4 py-2 rounded-full font-bold bg-white/5 hover:bg-primary hover:text-white transition-colors cursor-default">
+                  <li key={j} className="text-sm font-bold tracking-wide flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-black/20" />
                     {tag}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col md:flex-row items-center justify-between border-t border-black/10 pt-16 gap-8"
+        >
+          <h3 className="font-serif text-4xl md:text-6xl text-black">Ready to create?</h3>
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+            <button className="bg-black text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors duration-300 w-full sm:w-auto text-center">
+              View our work
+            </button>
+            <button className="bg-transparent border border-black/20 text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-black hover:text-white transition-all duration-300 w-full sm:w-auto text-center">
+              Explore plans
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
